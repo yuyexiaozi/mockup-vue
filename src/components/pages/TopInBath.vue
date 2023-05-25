@@ -61,6 +61,7 @@ export default defineComponent({
 
   &__unit {
     width: 65%;
+    min-width: 260px;
     margin: 0 auto;
     @media screen and (min-width: 1024px) {
       width: 90%;

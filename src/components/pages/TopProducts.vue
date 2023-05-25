@@ -31,7 +31,7 @@ export default defineComponent({
 
 <style lang="scss" scoped>
   .TopProducts {
-    padding: 50px;
+    padding: 50px 5vw;
     background: $colorLightGray;
     @media screen and (min-width: 1024px) {
       padding: 200px 7vw;

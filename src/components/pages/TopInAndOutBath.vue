@@ -79,6 +79,7 @@ export default defineComponent({
 
   &__unit {
     width: 90%;
+    min-width: 135px;
     margin: 0 auto;
   }
 
@@ -98,7 +99,7 @@ export default defineComponent({
     &--ja {
       margin-bottom: 8px;
       line-height: 1.2;
-      font-size: 12px;
+      font-size: 11px;
       letter-spacing: 0.1em;
       @media screen and (min-width: 1024px) {
         margin-bottom: 10px;
@@ -113,7 +114,7 @@ export default defineComponent({
 
   &__price {
     margin-bottom: 28px;
-    font-size: 12px;
+    font-size: 11px;
     letter-spacing: 0.1em;
     @media screen and (min-width: 1024px) {
       margin-bottom: 32px;
