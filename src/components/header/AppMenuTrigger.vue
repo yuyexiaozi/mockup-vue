@@ -11,10 +11,10 @@ export default defineComponent({
   },
   methods: {
     navOpen() {
-      const appNav:any = document.querySelector('#AppNav');
-      const headerTrigger:any = document.querySelector('#AppHeader__trigger');
-      appNav.classList.toggle('navOpen');
-      headerTrigger.classList.toggle('isOpen');
+      const appNav = document.querySelector('#AppNav');
+      const headerTrigger = document.querySelector('#AppHeader__trigger');
+      appNav?.classList.toggle('navOpen');
+      headerTrigger?.classList.toggle('isOpen');
     }
   }
 });

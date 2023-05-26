@@ -44,10 +44,12 @@ export default defineComponent({
       transition: .2s;
       z-index: -1;
     }
-    &:hover {
-      color: #fff;
-      &::after {
-        transform: scaleY(1);
+    @media screen and (min-width: 1024px) {
+      &:hover {
+        color: #fff;
+        &::after {
+          transform: scaleY(1);
+        }
       }
     }
   }
