@@ -12,15 +12,16 @@ export default defineComponent({
   methods: {
     navOpen() {
       const appNav:any = document.querySelector('#AppNav');
-      this.isOpen = !this.isOpen;
+      const headerTrigger:any = document.querySelector('#AppHeader__trigger');
       appNav.classList.toggle('navOpen');
+      headerTrigger.classList.toggle('isOpen');
     }
   }
 });
 </script>
 
 <template>
-  <div id="AppHeader__trigger" class="AppHeader__trigger" @click="navOpen" v-bind:class="{isOpen}">
+  <div id="AppHeader__trigger" class="AppHeader__trigger" @click="navOpen">
     <span class="AppHeader__triggerBar -top"></span>
     <span class="AppHeader__triggerBar -middle"></span>
     <span class="AppHeader__triggerBar -bottom"></span>
