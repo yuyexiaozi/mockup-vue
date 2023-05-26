@@ -3,11 +3,6 @@ import { defineComponent } from 'vue';
 
 export default defineComponent({
   name: 'AppViewMore',
-  methods: {
-    onClickMore() {
-      console.log('click:VIEW MORE');
-    }
-  }
 });
 </script>
 

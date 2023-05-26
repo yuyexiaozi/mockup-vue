@@ -18,10 +18,6 @@ export default defineComponent({
   <div class="App">
     <AppHeader />
     <AppNav />
-    <div id="nav">
-      <!-- <router-link to="/">Top</router-link>  -->
-      <!-- <router-link to="/about">About</router-link> -->
-    </div>
   </div>
   <router-view />
   <AppFooter />
