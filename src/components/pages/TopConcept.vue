@@ -9,16 +9,36 @@ export default defineComponent({
   data() {
     return {
       showText: false,
-      // chatch01: 'Consectetur',
-      // chatch02: 'eiusmod sunt.'
+      consectetur: [
+        { id: 1, text: 'C' },
+        { id: 2, text: 'o' },
+        { id: 3, text: 'n' },
+        { id: 4, text: 's' },
+        { id: 5, text: 'e' },
+        { id: 6, text: 'c' },
+        { id: 7, text: 't' },
+        { id: 8, text: 'e' },
+        { id: 9, text: 't' },
+        { id: 10, text: 'u' },
+        { id: 11, text: 'r' },
+      ],
+      eiusmodsunt: [
+        { id: 1, text: 'e' },
+        { id: 2, text: 'i' },
+        { id: 3, text: 'u' },
+        { id: 4, text: 's' },
+        { id: 5, text: 'm' },
+        { id: 6, text: 'o' },
+        { id: 7, text: 'd' },
+        { id: 8, text: ' ' },
+        { id: 9, text: 's' },
+        { id: 10, text: 'u' },
+        { id: 11, text: 'n' },
+        { id: 12, text: 't' },
+        { id: 13, text: '.' },
+      ]
     };
   },
-  // beforeMount() {
-  //   const topConceptCopyes = document.querySelectorAll('.TopConcept__catch');
-  //   topConceptCopyes.forEach((topConceptChatch) => {
-  //     topConceptChatch.innerHTML = this.wrapCharSpan(topConceptChatch?.innerHTML)
-  //   });
-  // },
   mounted() {
     const topConcept = document.querySelector('#TopConcept');
     if (!topConcept) {
@@ -28,28 +48,10 @@ export default defineComponent({
     const topConceptY = topConcept.getBoundingClientRect().y - Y;
     window.addEventListener('scroll', () => {
       Y = window.scrollY;
-      if (Y > topConceptY - 100) {
-        // this.animationText();
+      if (Y > topConceptY - 300) {
         this.showText = true;
       }
     });
-  },
-  methods: {
-    // wrapCharSpan(str: string) {
-    //   return [...str].map(char => `<span class="text" style="display: block; translate: 0 100%;">${char}</span>`).join('');
-    // }
-    // animationText() {
-    //   const chars = this.$refs;
-    //   Object.keys(chars).forEach(key => {
-    //     const char = chars[key] as HTMLElement;
-    //     if(char){
-    //       gsap.from(char, { 
-    //         opacity: 0, 
-    //         duration: 1,
-    //         delay: 0.1 * parseInt(key.split('-')[1]) });
-    //     }
-    //   });
-    // }
   },
   components: {
     AppArrowAnimeButton,
@@ -62,32 +64,12 @@ export default defineComponent({
     <div class="TopConcept__container--01">
       <h2 class="TopConcept__ttl">CONCEPT</h2>
       <p class="TopConcept__catch" :class="{ 'show-text': showText }">
-        <span class="TopConcept__catch--span">C</span>
-        <span class="TopConcept__catch--span">o</span>
-        <span class="TopConcept__catch--span">n</span>
-        <span class="TopConcept__catch--span">s</span>
-        <span class="TopConcept__catch--span">e</span>
-        <span class="TopConcept__catch--span">c</span>
-        <span class="TopConcept__catch--span">t</span>
-        <span class="TopConcept__catch--span">e</span>
-        <span class="TopConcept__catch--span">t</span>
-        <span class="TopConcept__catch--span">u</span>
-        <span class="TopConcept__catch--span">r</span>
+        <span v-for="c in consectetur" :key="c.id" v-bind:style="{ transitionDelay: `${c.id * 0.05}s` }"
+          class="TopConcept__catch--span">{{ c.text }}</span>
       </p>
       <p class="TopConcept__catch" :class="{ 'show-text': showText }">
-        <span class="TopConcept__catch--span">e</span>
-        <span class="TopConcept__catch--span">i</span>
-        <span class="TopConcept__catch--span">u</span>
-        <span class="TopConcept__catch--span">s</span>
-        <span class="TopConcept__catch--span">m</span>
-        <span class="TopConcept__catch--span">o</span>
-        <span class="TopConcept__catch--span">d</span>
-        <span class="TopConcept__catch--span"></span>
-        <span class="TopConcept__catch--span">s</span>
-        <span class="TopConcept__catch--span">u</span>
-        <span class="TopConcept__catch--span">n</span>
-        <span class="TopConcept__catch--span">t</span>
-        <span class="TopConcept__catch--span">.</span>
+        <span v-for="e in eiusmodsunt" :key="e.id" v-bind:style="{ transitionDelay: `${e.id * 0.05}s` }"
+          class="TopConcept__catch--span">{{ e.text }}</span>
       </p>
     </div>
     <div class="TopConcept__container--02">
@@ -142,20 +124,20 @@ export default defineComponent({
     font-size: 36px;
     letter-spacing: 0.1em;
     overflow: hidden;
-    
+
     @media screen and (min-width: 1024px) {
       padding-left: 10vw;
       font-size: 42px;
     }
-    
+
     &:last-child {
       margin-bottom: 80px;
-      
+
       @media screen and (min-width: 1024px) {
         margin-bottom: 340px;
       }
     }
-    
+
     & span {
       translate: 0 100%;
       transition: .3s;
@@ -165,7 +147,7 @@ export default defineComponent({
       translate: 0 0;
     }
   }
-  
+
   &__container--02 {
     position: relative;
     padding-bottom: 240px;
