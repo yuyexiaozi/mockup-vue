@@ -9,7 +9,7 @@ export default defineComponent({
   components: {
     AppHeader,
     AppNav,
-    AppFooter
+    AppFooter,
   }
 });
 </script>

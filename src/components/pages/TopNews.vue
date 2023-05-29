@@ -1,11 +1,28 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
+import SwiperCore, { Navigation } from "swiper";
+import { Swiper, SwiperSlide } from "swiper/vue";
+import 'swiper/swiper.scss'
 import AppArrowAnimeButton from '@/components/AppArrowAnimeButton.vue';
 
 export default defineComponent({
   name: 'TopNews',
   components: {
     AppArrowAnimeButton,
+    Swiper,
+    SwiperSlide
+  },
+  setup() {
+    const onSwiper = (swiper:any) => {
+      console.log(swiper);
+    }
+    const onSlideChange = () => {
+      console.log('slide change');
+    };
+    return {
+      onSwiper,
+      onSlideChange,
+    }
   }
 });
 </script>
@@ -18,32 +35,48 @@ export default defineComponent({
         <AppArrowAnimeButton>VIEW ALL</AppArrowAnimeButton>
       </router-link>
     </div>
-    <ul class="TopNews__ul">
-      <li class="TopNews__list">
+    <swiper :slides-per-view="2.5" :space-between="50" class="TopNews__ul">
+      <swiper-slide class="TopNews__list">
         <a href="#" class="TopNews__link">
           <p class="TopNews__pic"><img src="@/assets/images/news_img01.jpg" alt="news画像" class="TopNews__img"></p>
           <p class="TopNews__txt">Labore duis exercitation labore ullamco pariatur Lorem in exercitation proident laboris.
           </p>
           <p class="TopNews__date">20XX.00.00</p>
         </a>
-      </li>
-      <li class="TopNews__list">
+      </swiper-slide>
+      <swiper-slide class="TopNews__list">
         <a href="#" class="TopNews__link">
           <p class="TopNews__pic"><img src="@/assets/images/news_img01.jpg" alt="news画像" class="TopNews__img"></p>
           <p class="TopNews__txt">Labore duis exercitation labore ullamco pariatur Lorem in exercitation proident laboris.
           </p>
           <p class="TopNews__date">20XX.00.00</p>
         </a>
-      </li>
-      <li class="TopNews__list">
+      </swiper-slide>
+      <swiper-slide class="TopNews__list">
         <a href="#" class="TopNews__link">
           <p class="TopNews__pic"><img src="@/assets/images/news_img01.jpg" alt="news画像" class="TopNews__img"></p>
           <p class="TopNews__txt">Labore duis exercitation labore ullamco pariatur Lorem in exercitation proident laboris.
           </p>
           <p class="TopNews__date">20XX.00.00</p>
         </a>
-      </li>
-    </ul>
+      </swiper-slide>
+      <swiper-slide class="TopNews__list">
+        <a href="#" class="TopNews__link">
+          <p class="TopNews__pic"><img src="@/assets/images/news_img01.jpg" alt="news画像" class="TopNews__img"></p>
+          <p class="TopNews__txt">Labore duis exercitation labore ullamco pariatur Lorem in exercitation proident laboris.
+          </p>
+          <p class="TopNews__date">20XX.00.00</p>
+        </a>
+      </swiper-slide>
+      <swiper-slide class="TopNews__list">
+        <a href="#" class="TopNews__link">
+          <p class="TopNews__pic"><img src="@/assets/images/news_img01.jpg" alt="news画像" class="TopNews__img"></p>
+          <p class="TopNews__txt">Labore duis exercitation labore ullamco pariatur Lorem in exercitation proident laboris.
+          </p>
+          <p class="TopNews__date">20XX.00.00</p>
+        </a>
+      </swiper-slide>
+    </swiper>
   </section>
 </template>
 
@@ -54,7 +87,7 @@ export default defineComponent({
   @media screen and (min-width: 1024px) {
     display: flex;
     gap: 14vw;
-    padding: 120px 7vw;
+    padding: 120px 0 120px 7vw;
   }
   &__container {
     display: flex;
@@ -94,6 +127,9 @@ export default defineComponent({
   }
 
   &__img {
+    display: block;
+    object-fit: cover;
+    object-position: center center;
     transition: .5s;
   }
 
@@ -102,7 +138,6 @@ export default defineComponent({
     margin-bottom: 10px;
     overflow: hidden;
     @media screen and (min-width: 1024px) {
-      height: 220px;
       margin-bottom: 14px;
     }
   }

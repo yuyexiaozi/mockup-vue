@@ -64,12 +64,10 @@ export default defineComponent({
     <div class="TopConcept__container--01">
       <h2 class="TopConcept__ttl">CONCEPT</h2>
       <p class="TopConcept__catch" :class="{ 'show-text': showText }">
-        <span v-for="c in consectetur" :key="c.id" v-bind:style="{ transitionDelay: `${c.id * 0.05}s` }"
-          class="TopConcept__catch--span">{{ c.text }}</span>
+        <span v-for="c in consectetur" :key="c.id" :style="{ transitionDelay: `${c.id * 0.05}s` }" class="TopConcept__catch--span">{{ c.text }}</span>
       </p>
       <p class="TopConcept__catch" :class="{ 'show-text': showText }">
-        <span v-for="e in eiusmodsunt" :key="e.id" v-bind:style="{ transitionDelay: `${e.id * 0.05}s` }"
-          class="TopConcept__catch--span">{{ e.text }}</span>
+        <span v-for="e in eiusmodsunt" :key="e.id" :style="{ transitionDelay: `${e.id * 0.05}s` }" class="TopConcept__catch--span">{{ e.text }}</span>
       </p>
     </div>
     <div class="TopConcept__container--02">
