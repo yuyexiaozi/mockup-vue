@@ -84,7 +84,7 @@ export default defineComponent({
 <style lang="scss" scoped>
 .TopConcept {
   position: relative;
-  padding: 60px;
+  padding: 60px 9vw;
 
   @media screen and (min-width: 1024px) {
     padding: 120px 7vw 160px;

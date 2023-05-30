@@ -7,6 +7,12 @@ import AppArrowAnimeButton from '@/components/AppArrowAnimeButton.vue';
 
 export default defineComponent({
   name: 'TopNews',
+  data() {
+    return {
+      windowWidth: window.innerWidth,
+      slides : 2,
+    }
+  },
   components: {
     AppArrowAnimeButton,
     Swiper,
@@ -23,6 +29,20 @@ export default defineComponent({
       onSwiper,
       onSlideChange,
     }
+  },
+  mounted() {
+    this.resizeWindow();
+    window.addEventListener('resize', this.resizeWindow);
+  },
+  methods: {
+    resizeWindow() {
+      this.windowWidth = window.innerWidth;
+      if(this.windowWidth < 1024){
+        this.slides = 1.5;
+      }else{
+        this.slides = 3;
+      }
+    }
   }
 });
 </script>
@@ -35,7 +55,7 @@ export default defineComponent({
         <AppArrowAnimeButton>VIEW ALL</AppArrowAnimeButton>
       </router-link>
     </div>
-    <swiper :slides-per-view="2.5" :space-between="50" class="TopNews__ul">
+    <swiper :slides-per-view="slides" :space-between="50" class="TopNews__ul">
       <swiper-slide class="TopNews__list">
         <a href="#" class="TopNews__link">
           <p class="TopNews__pic"><img src="@/assets/images/news_img01.jpg" alt="news画像" class="TopNews__img"></p>
@@ -128,13 +148,16 @@ export default defineComponent({
 
   &__img {
     display: block;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
     object-position: center center;
     transition: .5s;
   }
 
   &__pic {
-    height: 200px;
+    // height: 26vw;
+    aspect-ratio: 4.5 /3;
     margin-bottom: 10px;
     overflow: hidden;
     @media screen and (min-width: 1024px) {
@@ -145,11 +168,13 @@ export default defineComponent({
   &__link {
     color: #000;
     transition: .2s;
-    &:hover {
-      & .TopNews__img {
-        transform: scale(1.1);
+    @media screen and (min-width: 1024px) {
+      &:hover {
+        & .TopNews__img {
+          transform: scale(1.1);
+        }
+        color: #8e8e8e;
       }
-      color: #8e8e8e;
     }
   }
 
