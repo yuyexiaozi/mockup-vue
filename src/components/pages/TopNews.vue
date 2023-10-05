@@ -102,7 +102,7 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 .TopNews {
-  padding: 50px 0 100px 50px;
+  padding: 50px 0 100px;
   overflow-x: hidden;
   @media screen and (min-width: 1024px) {
     display: flex;
@@ -124,11 +124,16 @@ export default defineComponent({
 
   &__ttl {
     @include sectionTtl();
+    padding-left: 50px;
   }
 
   &__ul {
     display: flex;
     gap: 28px;
+    padding-left: 50px;
+    @media screen and (min-width: 1024px) {
+      padding-left: 0;
+    }
   }
 
   &__list {
